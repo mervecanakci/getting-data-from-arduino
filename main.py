@@ -9,14 +9,14 @@ from web3.auto import w3
 
 
 # Seri port yapılandırması
-# Arduino'nun bağlı olduğu seri portu ve baud hızını ayarlayın
-# arduino_port = "/dev/ttyACM0"  # Linux için
-arduino_port = "COM3"  # Windows için
+# Arduino'nun bağlı olduğu seri portu ve baud hızını ayarlar
+# arduino_port = "/dev/ttyACM0"  # Linux
+arduino_port = "COM3"  # Windows
 baud_rate = 9600
 
 # Seri bağlantıyı başlat
 ser = serial.Serial(arduino_port, baud_rate)
-time.sleep(2)  # Arduino'nun bağlantıya hazır olmasını bekleyin
+time.sleep(2)  # Arduino'nun bağlantıya hazır olması için bekle
 
 
 # Ethereum node bağlantısı
@@ -205,7 +205,7 @@ contract_abi = [
 contract = w3.eth.contract(address=contract_address, abi=contract_abi)
 
 while True:
-    # Seri porttan gelen veriyi oku ve ayrıştır
+    # Seri porttan gelen veriyi okuyup ve ayrıştırır
     data = ser.readline().decode().strip()
     print("Arduino'dan gelen veri:", data)
 
